@@ -1,0 +1,135 @@
+#piano-container{
+    margin: 0 auto;
+    width: calc(100% -40px);
+    height: 400px;
+    overflow: auto;
+}
+
+#piano-wrap * {
+    box-sizing: border-box;
+    font-family: Arial;
+    user-select: none;
+}
+
+#piano-wrap{
+    margin: 0 auto;
+    height: 330px;
+    width: calc(46px*18);
+    display: flex;
+    justify-content: center;
+}
+
+#piano-wrap > div{
+    position: relative;
+}
+
+.white-key{
+    width: 46px;
+    height: 280px;
+    background-color: #fffff9;
+    border: solid 1px #333333;
+    z-index: 1;
+    box-shadow: 0 7px 3px 0 rgba(0, 0, 0,0.3);
+    transition: 100ms;
+    color: black;
+}
+
+.white-key.pressing{
+    border-bottom: solid rgb(230, 230, 230) 3px;
+    border-left: solid rgb(109, 109, 76) 2px;
+    border-right: solid rgb(109, 109, 76) 2px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    background-color: #c1ff84;
+}
+
+.black-key{
+    width: 24px;
+    height: 160px;
+    background-color: #333333;
+    margin-left: -12px;
+    margin-right: -12px;
+    z-index: 2;
+    box-shadow: 5px 1px 2px 0 rgba(0, 0, 0,0.4);
+    transition: 100ms;
+    color: #fffff9;
+    text-align: center;
+}
+
+.black-key.pressing{
+    border-bottom: solid rgb(54, 54, 54) 1px;
+    box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: #bfff7f;
+    border-left: solid #333333 1px;
+    border-right: solid #333333 1px;
+}
+
+.pitch{
+    position: absolute;
+    display: black;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.space{
+    margin-left: 50px;
+
+}
+
+.startbutton{
+    text-align: center;
+}
+
+th{
+    background-color: #999;
+    color: fff;
+    padding: 5px 10px;
+}
+
+td{
+    border: solid 1px #aaa;
+    color: #999;
+    padding: 5px 10px;
+}
+/* 参考:https://saruwakakun.com/html-css/reference/blockquote */
+blockquote {
+    position: relative;
+    padding: 7px 16px;
+    box-sizing: border-box;
+    font-style: italic;
+    color: #464646;
+    border: solid 3px #72ccf4;
+}
+
+blockquote:before{
+    display: inline-block;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    content: "\f10d";
+    font-family: FontAwesome;
+    background: #72ccf4;
+    color: #FFF;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+
+blockquote p {
+    padding: 0;
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
+}
+
