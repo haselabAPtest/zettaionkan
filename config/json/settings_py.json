@@ -1,0 +1,9 @@
+{
+    "path": "D:\\xampp\\htdocs\\piano_demo\\app\\Python\\",
+    "address": "'nasu.y@sound.is.utsunomiya-u.ac.jp'",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "username": "testuser",
+    "password": "pw4testuser",
+    "dbname": "test"
+}
