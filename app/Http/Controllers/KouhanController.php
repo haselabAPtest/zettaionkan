@@ -53,8 +53,11 @@ class KouhanController extends Controller
             $recv_array = $request->session()->pull('Q_array');
             $recv_count = $request->session()->pull('Q_count');
             $recv_val = $request->input('val');
-            $username = $request->session()->pull('username');
+            $username = $request->session()->get('username');
+            $result = $request->session()->get('result');
             $mail = $request->session()->pull('mail');
+
+            $command = 'python ' . config('app.pythonPATH') . 'send_mail.py 2>&1';
 
             if (isset($recv_array, $recv_count)) {
                 $ques = $recv_array;
@@ -116,13 +119,6 @@ class KouhanController extends Controller
                                     :ans105,:ans106,:ans107,:ans108)',
                 $data
             );
-
-            $userid = $request->session()->pull('userid');
-            $kouhan_id = DB::select('select id from kouhan order by id desc limit 1');
-            $data_id = [
-                'id' => $userid, 'kouhan' => $kouhan_id
-            ];
-            DB::update('update enquete set kouhan_id = :kouhan where id = :id', $data_id);
 
             //ここから
             //問題と回答を紐づけ
@@ -187,6 +183,9 @@ class KouhanController extends Controller
             //ここまで
             $request->session()->forget('halfFlag');
             $request->session()->flush();
+            if ($result == 'はい' && $mail != '') {
+                exec($command, $output);
+            }
 
             return view('piano.finish');
         } else {

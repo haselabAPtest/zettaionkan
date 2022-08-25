@@ -131,13 +131,6 @@ class ZenhanController extends Controller
                 $data
             );
 
-            $userid = $request->session()->pull('userid');
-            $zenhan_id = DB::select('select id from zenhan order by id desc limit 1');
-            $data_id = [
-                'id' => $userid, 'zenhan' => $zenhan_id
-            ];
-            DB::update('update enquete set zenhan_id = :zenhan where id = :id', $data_id);
-
             $count = 54;
             $request->session()->put('Q_array', $ques);
             $request->session()->put('Q_count', $count);

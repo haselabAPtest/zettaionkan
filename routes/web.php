@@ -48,12 +48,12 @@ Route::match(['get', 'post'], 'ques02', [KouhanController::class, 'ques02']);
 Route::match(['get', 'post'], 'finish', [KouhanController::class, 'finish']);
 
 //テスト用ページ(PianoController)
-Route::get('dbtest01', [PianoController::class, 'dbtest01']);
-Route::get('dbtest02', [PianoController::class, 'dbtest02']);
-Route::get('dbtest03', [PianoController::class, 'dbtest03']);
+//Route::get('dbtest01', [PianoController::class, 'dbtest01']);
+//Route::get('dbtest02', [PianoController::class, 'dbtest02']);
+//Route::get('dbtest03', [PianoController::class, 'dbtest03']);
 
-Route::match(['get', 'post'], 'mail_test', [PianoController::class, 'mail_test']);
-Route::match(['get', 'post'], 'mail_sent', [PianoController::class, 'mail_sent']);
-Route::match(['get', 'post'], 'auto_mail', [PianoController::class, 'auto_mail']);
+//Route::match(['get', 'post'], 'mail_test', [PianoController::class, 'mail_test']);
+//Route::match(['get', 'post'], 'mail_sent', [PianoController::class, 'mail_sent']);
+//Route::match(['get', 'post'], 'auto_mail', [PianoController::class, 'auto_mail']);
 
 //Route::match(['get', 'post'], 'send_db', [KouhanController::class, 'send_db']);

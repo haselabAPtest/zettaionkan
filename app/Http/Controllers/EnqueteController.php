@@ -201,10 +201,8 @@ class EnqueteController extends Controller
             //データベースに接続し、データ登録
             DB::insert('insert into enquete(namae,seibetsu,nenrei,q1,q2,q3,q4,q5,result,mail,date) values (:name,:sex,:age,:learnPiano,:musicJob,:absolutePitch,:ability,:symptom,:result,:mail,:datetime)', $userdata);
 
-            //セッションにDB上のID保存
-            $id = DB::select('select id from enquete order by id desc limit 1');
-            $request->session()->put('userid', $id);
-
+            $request->session()->put('result', $userdata['result']);
+            $request->session()->put('username', $userdata['name']);
             $request->session()->put('enqueteFlag', 'true');
 
             if (is_mobile()) {
