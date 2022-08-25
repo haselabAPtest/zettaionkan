@@ -329,7 +329,7 @@ def main():
     service=build('gmail','v1',credentials=creds,static_discovery=False,cache_discovery=False)
             
     #メール本文作成
-    sender='nasu.y@sound.is.utsunomiya-u.ac.jp '
+    sender=ADDRESS
     to=mail
     subject='絶対音感テストの結果_'+username+"様"
     message_text=read_text(PATH+'mail_format.html')
