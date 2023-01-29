@@ -173,6 +173,14 @@
                 </div>
             </div>
         </li>
+        <li><span class="back">テスト結果はhtmlメールに添付された画像よりご確認いただけます。もし、PDFファイルでの結果のお受け取りもご希望の方は「希望する」を選択してください。</span>
+            <div class="custom-control custom-checkbox mt-3 ml-3 mb-5">
+                <input name="pdf" class="custom-control-input" id="checkbox01" type="checkbox" value="希望する">
+                <label class="custom-control-label" for="checkbox01">
+                <span class="back">希望する</span>
+                </label>
+            </div>
+        </li>
         <div  class="back">
         <button type="submit" class="btn btn-outline-default">確認する</button>
         </div>

@@ -13,7 +13,7 @@ class EnqueteController extends Controller
     //トップページ
     public function top()
     {
-       
+
         // $command ='python ' . 'C:\Users\music\Documents\xampp\zettaionkan\app\Python\send_mail.py 2>&1';
         // exec($command, $output);
         // // $fp = fopen("output.txt", "w");
@@ -26,7 +26,6 @@ class EnqueteController extends Controller
     public function labolatory()
     {
         return view('piano.labolatory');
-       
     }
 
     public function link()
@@ -71,7 +70,7 @@ class EnqueteController extends Controller
         }
     }
 
-    
+
 
     //アンケート回答確認ページ
     public function confirm(Request $request)
@@ -87,6 +86,7 @@ class EnqueteController extends Controller
         $result = $request->input('result');
         $mail = $request->input('mail');
         $request->session()->put('mail', $mail);
+        $pdf = $request->input('pdf');
 
         if (isset($name)) {
             $isName = !is_null($request->input('name'));
@@ -167,6 +167,10 @@ class EnqueteController extends Controller
             $mail = '';
         }
 
+        if (!isset($pdf)) {
+            $pdf = '希望しない';
+        }
+
         $isSubmited = $isName && $isSex && $isAge && $is_ability && $is_absolutePitch && $is_musicJob && $is_result;
         if ($isSubmited) {
             $prof['name'] = $name;
@@ -179,6 +183,7 @@ class EnqueteController extends Controller
             $prof['symptom'] = $symptom;
             $prof['result'] = $result;
             $prof['mail'] = $mail;
+            $prof['pdf'] = $pdf;
 
             $request->session()->put('prof', $prof);
 
@@ -199,6 +204,7 @@ class EnqueteController extends Controller
             'ismobile' => $ismobile,
             'result' => $result,
             'mail' => $mail,
+            'pdf' => $pdf
         ]);
     }
 
@@ -241,11 +247,12 @@ class EnqueteController extends Controller
                 'symptom' => $prof['symptom'],
                 'result' => $prof['result'],
                 'mail' => $prof['mail'],
+                'pdf' => $prof['pdf'],
                 'datetime' => $datetime,
             ];
 
             //データベースに接続し、データ登録
-            DB::insert('insert into enquete(namae,seibetsu,nenrei,q1,q2,q3,q4,q5,result,mail,date) values (:name,:sex,:age,:learnPiano,:musicJob,:absolutePitch,:ability,:symptom,:result,:mail,:datetime)', $userdata);
+            DB::insert('insert into enquete(namae,seibetsu,nenrei,q1,q2,q3,q4,q5,result,mail,pdf,date) values (:name,:sex,:age,:learnPiano,:musicJob,:absolutePitch,:ability,:symptom,:result,:mail,:pdf,:datetime)', $userdata);
 
             $request->session()->put('result', $userdata['result']);
             $request->session()->put('username', $userdata['name']);
