@@ -24,6 +24,7 @@
     <p class="message">絶対音感能力が低下した時期、どのような症状が出ましたか？： {{$symptom}} </p>
     <p class="message">絶対音感テストの結果をメールで受け取りますか？： {{$result}} </p>
     <p class="message">メールアドレス： {{$mail}} </p>
+    <p class="message">PDFファイルでの結果の受け取り： {{$pdf}} </p>
     <p class="message">それではテストの進め方の説明へすすみます。</p>
 
     <button type="submit" class="btn btn-outline-default" onclick="location.href='instruct'">説明へすすむ</button>
